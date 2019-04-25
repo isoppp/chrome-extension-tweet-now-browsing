@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bookmarklet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+  <style>
+  body {
+    min-height: 100vh;
+  }
+
+  .body {
+    min-height: calc(100vh - 96px);
+    padding-top: 80px;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .wrapper-copy {
+    font-weight: bold;
+    margin-left: 20px;
+  }
+
+  .mt-16 {
+    margin-top: 16px;
+  }
+
+  .footer {
+    padding: 1.5rem 1.5rem 3rem;
+  }
+  </style>
+</head>
+<body>
+
+<div class="body">
+  <div class="container">
+    <h1 class="title">Bookmarklet to Tweet "Now Browsing..."</h1>
+    <a id="add-bookmarklet" class="button is-primary" href="#">Please drag and drop to bookmark bar</a>
+    <div class="mt-16">or</div>
+    <div class="wrapper mt-16">
+      <pre id="source-bookmarklet"></pre>
+      <div class="wrapper-copy button is-primary js-copy" data-clipboard-target="#source-bookmarklet">Copy!</div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <a href="https://github.com/isoppp/" target="_blank">isoppp</a> / <a href="https://github.com/isoppp/tool-tweet-now-browsing" target="_blank">See in Github</a>
+  </div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", (event) => {
+  fetch('https://raw.githubusercontent.com/isoppp/tool-tweet-now-browsing/master/dist/bookmarklet/bookmarklet.js')
+    .then(function (response) {
+      response.text().then(function (text) {
+        const code = `javascript:(()=>{${text}})();`
+        window.document.querySelector('#add-bookmarklet').setAttribute('href', code)
+        window.document.querySelector('#source-bookmarklet').innerHTML = code
+        window.document.querySelector('#source-bookmarklet').setAttribute('value', code)
+      })
+    })
+
+  new ClipboardJS('.js-copy');
+});
+</script>
+</body>
+</html>
