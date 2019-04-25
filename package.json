@@ -1,0 +1,23 @@
+{
+  "name": "tool-tweet-now-browsing",
+  "version": "0.0.1",
+  "description": "Tools that tweet Now Browsing...",
+  "repository": "https://github.com/isoppp/tool-tweet-now-browsing.git",
+  "author": "isoppp <prog@d2deck.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "bookmarklet:build": "webpack --mode production"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 11"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
+  }
+}
