@@ -6,7 +6,7 @@ const baseUrl = 'https://twitter.com/intent/tweet'
 const selectionText = window.getSelection().toString()
 const selectionContent = selectionText ? `"${selectionText}" | ` : ''
 const prefix = 'Now Browsing: '
-const content = ogTitle ? ogTitle.getAttribute('content') : window.document.title
+const content = window.document.title || ogTitle ? ogTitle.getAttribute('content') : ''
 const url = canonical ? canonical.getAttribute('href') : (ogUrl ? ogUrl.getAttribute('content') : window.location.href)
 const hashtag = ''
 
