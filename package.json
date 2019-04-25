@@ -1,0 +1,9 @@
+{
+  "name": "tool-tweet-now-browsing",
+  "version": "0.0.1",
+  "description": "Tools that tweet Now Browsing...",
+  "repository": "https://github.com/isoppp/tool-tweet-now-browsing.git",
+  "author": "isoppp <prog@d2deck.com>",
+  "license": "MIT",
+  "private": false
+}
